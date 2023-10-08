@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/hello_world", to: redirect("hello_world.html") 
+
+  resources :users
 end
