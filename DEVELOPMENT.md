@@ -1,4 +1,7 @@
-I'll be collecting my thought process, trying to keep pace with each commit, as I go here:
+I'll be collecting my thought process, trying to keep pace with each commit, as I go here.
+
+This is very stream-of-consciousness - I'll be creating a more structured
+overview of the project toward the end.
 
 # First Glance
 
@@ -67,9 +70,9 @@ Eventually we will have to integrate these and test those integrations.
 
 Integer primary keys are assumed.
 
-Initial headcanon for my schema:
+Headcanon for my schema (will evolve with commits):
 
-	user name:varchar(24)(unique + indexed) email:string github_name:varchar(39) description:text cached_rating:decimal timestamps
+	user name:varchar(24)(unique + indexed) email:string github_name:varchar(39) description:text rating:decimal timestamps
 		has_many :posts
 		has_many :comments
 		has_many :direct_messages
@@ -79,6 +82,8 @@ Initial headcanon for my schema:
 		has_and_belongs_to_many :ratings
 		has_many :ratings_rater, as: :rater
 		has_many :ratings_ratee, as: :ratee
+
+	activity_item user_id:integer (indexed) activity_time:datetime (indexed) invoker_id:integer invoker_type:string description:varchar(255) timestamps
 
 	post user_id:integer (indexed) title:varchar(128) body:text timestamps
 		belongs_to :user
@@ -97,9 +102,7 @@ polymorphic!
 	favorite favorited_id:integer favorited_type:string (must be in user, post, comment)
 
 
-	activity_item user_id:integer (indexed) description:varchar(255) timestamps
-
-# Implementing users
+# Initializing users
 
 What stands out immediately are that we will need (or may find very desirable) several more features not explicitly listed in the original design requirements. In particular:
 
@@ -114,3 +117,10 @@ I'll actually get around to developing these later in the process since, again, 
 I fleshed out the initial migration, added some basic validations to the model, and after some fiddling with RSpec, got the initial model tests to pass.
 
 I had a lot of relearning RSpec to do, picked up shoulda along the way, and rewrote the test suite to be a lot less verbose and more DRY - ditto for the model's initial validations.
+
+# Intitializing ActivityItem
+
+Given that history will be central to this app, I thought I had might as well lay the foundation for this first.
+
+This will be the nexus through which many different objects chronicle history; ActivityItem will be invoked from
+other models when the relevant activities outlined in the requirements are made.
