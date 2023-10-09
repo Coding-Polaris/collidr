@@ -56,4 +56,59 @@ Let's see if we can get a basic Hello World page to load, which I'll remind myse
 
 	get "/hello_world" to: redirect("/public/hello_world.html")
 
-After *extensive* wrestling with permissions and setup, I finally got the server to stop complaining about postgres not being set up and hit the landing and Hello World pages.
+After *extensive* wrestling with first-time-postgres-install permissions and config, I finally got the server to stop complaining about it not being set up and hit the landing and Hello World pages.
+
+# The business
+
+## Overall data layout/relationships
+
+Let's start with the DB structure and relationships of the tables we'll be using, then start implementing and testing them one by one.
+Eventually we will have to integrate these and test those integrations.
+
+Integer primary keys are assumed.
+
+Initial headcanon for my schema:
+
+	user name:varchar(24)(unique + indexed) email:string github_name:varchar(39) description:text cached_rating:decimal timestamps
+		has_many :posts
+		has_many :comments
+		has_many :direct_messages
+		has_many :activity_items
+		# might implement, in any case it's mandatory for standard social media apps
+		has_many :blocked_users, through: :blocks 
+		has_and_belongs_to_many :ratings
+		has_many :ratings_rater, as: :rater
+		has_many :ratings_ratee, as: :ratee
+
+	post user_id:integer (indexed) title:varchar(128) body:text timestamps
+		belongs_to :user
+
+	comment user_id:integer indexed post_id: timestamps
+
+	rating stars:integer rater_id:integer (user_id, indexed) ratee_id:integer (user_id, indexed) timestamps
+		has_one :user, as: :rater
+		has_one :user, as: :ratee
+
+Other things I might add later, if I have the time:
+
+	block blocker_id:integer (indexed) blocked_id:integer (indexed) unique constraint on pair
+polymorphic!
+
+	favorite favorited_id:integer favorited_type:string (must be in user, post, comment)
+
+
+	activity_item user_id:integer (indexed) description:varchar(255) timestamps
+
+# Implementing users
+
+What stands out immediately are that we will need (or may find very desirable) several more features not explicitly listed in the original design requirements. In particular:
+
+  - User authentication; create signup, login, and email verification. Are you who you say you are?
+  - Authentication with GitHub. Is that really your GitHub account?
+  - A User directory with sorting, searching, and pagination
+
+I'll actually get around to developing these later in the process since, again, rolling auth from scratch is something I'm not used to doing - but what's important for now is writing it down.
+
+		rails g scaffold User
+
+I fleshed out the initial migration, added some basic validations to the model, and after some fiddling with RSpec, got the initial model tests to pass.
