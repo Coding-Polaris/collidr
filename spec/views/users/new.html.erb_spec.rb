@@ -4,10 +4,10 @@ RSpec.describe "users/new", type: :view do
   before(:each) do
     assign(:user, User.new(
       name: "MyString",
-      email: "MyString",
+      email: "newuser@gmail.com",
       github_name: "MyString",
       description: "MyText",
-      cached_rating: "9.99"
+      rating: "4.20"
     ))
   end
 
@@ -24,7 +24,7 @@ RSpec.describe "users/new", type: :view do
 
       assert_select "textarea[name=?]", "user[description]"
 
-      assert_select "input[name=?]", "user[cached_rating]"
+      assert_select "input[name=?]", "user[rating]"
     end
   end
 end

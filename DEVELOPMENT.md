@@ -112,3 +112,5 @@ I'll actually get around to developing these later in the process since, again, 
 		rails g scaffold User
 
 I fleshed out the initial migration, added some basic validations to the model, and after some fiddling with RSpec, got the initial model tests to pass.
+
+I had a lot of relearning RSpec to do, picked up shoulda along the way, and rewrote the test suite to be a lot less verbose and more DRY - ditto for the model's initial validations.

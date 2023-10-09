@@ -4,10 +4,10 @@ RSpec.describe "users/edit", type: :view do
   let(:user) {
     User.create!(
       name: "MyString",
-      email: "MyString",
+      email: "example@example.com",
       github_name: "MyString",
       description: "MyText",
-      cached_rating: "9.99"
+      rating: "2.53"
     )
   }
 
@@ -28,7 +28,7 @@ RSpec.describe "users/edit", type: :view do
 
       assert_select "textarea[name=?]", "user[description]"
 
-      assert_select "input[name=?]", "user[cached_rating]"
+      assert_select "input[name=?]", "user[rating]"
     end
   end
 end
