@@ -55,6 +55,12 @@ describe User, type: :model do
       user.valid?
       expect(user.errors[:rating]).to be_empty
     end
+
+    it "is equal to an average of the user's total Rating values" do
+      expect(user.rating).to equal(4)
+      expect(user.rating).to equal(3.5)
+      expect(user.rating).to equal(4)
+    end
   end
 
   describe "#github_name" do
@@ -74,6 +80,15 @@ describe User, type: :model do
       user.github_name = "valid-username"
       user.valid?
       expect(user.errors[:github_name]).to be_empty
+    end
+  end
+
+  describe "#rate_user" do
+    it "should assign a rating to another user" do
+      second_user = User.new
+      user.rate_user(second_user, 4)
+
+      expect(second_user.rating).to eq(4)
     end
   end
 end
