@@ -28,4 +28,7 @@ class Rating < ActiveRecord::Base
   end
 
   validates :rater_id, uniqueness: { scope: :ratee_id }
+
+  belongs_to :rater, foreign_key: :rater_id, class_name: "User"
+  belongs_to :ratee, foreign_key: :ratee_id, class_name: "User"
 end
