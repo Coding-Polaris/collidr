@@ -121,8 +121,7 @@ I had a lot of relearning RSpec to do, picked up shoulda along the way, and rewr
 
 Given that history will be central to this app, I thought I had might as well lay the foundation for this first.
 
-This will be the nexus through which many different objects chronicle history; ActivityItem will be invoked from
-other models when the relevant activities outlined in the requirements are made.
+This will be the nexus through which many different objects chronicle history; ActivityItem will be invoked from other models when the relevant activities outlined in the requirements are made.
 
 # Actually drawing a schema
 
@@ -135,3 +134,9 @@ I found an online tool, DrawSQL, that can convert the output from `rake db:schem
 I've found it helpful throughout my career to have the table I'm looking at available at a glance in the model file.
 
 The annotate gem accomplishes this nicely and can be configured to fire automatically with every migration. I added this at this point to make the way forward a bit more painless.
+
+# Avoiding coupling
+
+After creating Users and ActivityItem, and also realizing I wanted to keep a tight record of everything users do, I realized it would be both unwieldy and bad practice to have User call some kind of logger and ActivityItem directly every time a relevant event occurred.
+
+"Who asked?" is a meme, but in this case there's an answer: "whoever's listening." I'll want ActivityItem and my Logger to be listening for events that they are intended to record, like when a user signs up, averages their rating at or above 4 stars, or publishes something on GitHub.
