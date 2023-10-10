@@ -5,7 +5,7 @@ overview of the project toward the end.
 
 # First Glance
 
-To me, the barest requirements at first suggest a simple CRUD app with a few has-many and many-to-many relationships that yields and consumes JSON containing user/post/GitHub data, which the front end can then render into components and interfaces.
+To me, the barest requirements at first suggest a simple CRUD app with a few has-many/belongs-to and many-to-many relationships that yields and consumes JSON containing user/post/GitHub data, which the front end can then render into components and interfaces.
 
 I'll proceed with Ruby 3.2.2 installed with `asdf` and rails 7.0.8. There are potentially infinite options for a solution here, but I'll use these in the interest of familiarity, time constraints, and not reinventing the wheel.
 
@@ -101,7 +101,6 @@ polymorphic!
 
 	favorite favorited_id:integer favorited_type:string (must be in user, post, comment)
 
-
 # Initializing users
 
 What stands out immediately are that we will need (or may find very desirable) several more features not explicitly listed in the original design requirements. In particular:
@@ -124,3 +123,9 @@ Given that history will be central to this app, I thought I had might as well la
 
 This will be the nexus through which many different objects chronicle history; ActivityItem will be invoked from
 other models when the relevant activities outlined in the requirements are made.
+
+# Actually drawing a schema
+
+It was at this point I realized formally definining the structure of the app was probably a better idea from the outset.
+
+I found an online tool, DrawSQL, that can convert the output from `rake db:schema:dump` to a drawn schema. This will greatly speed up being able to structure and implement my apps; ideally a tool that lets me expand this to visualizing and checking off things like the MVC would make the process much more streamlined and structured than it's been up to this point.
