@@ -140,3 +140,21 @@ The annotate gem accomplishes this nicely and can be configured to fire automati
 After creating Users and ActivityItem, and also realizing I wanted to keep a tight record of everything users do, I realized it would be both unwieldy and bad practice to have User call some kind of logger and ActivityItem directly every time a relevant event occurred.
 
 "Who asked?" is a meme, but in this case there's an answer: "whoever's listening." I'll want ActivityItem and my Logger to be listening for events that they are intended to record, like when a user signs up, averages their rating at or above 4 stars, or publishes something on GitHub.
+
+# Getting ahead of myself
+
+I'm finding it difficult to know in which *direction* to proceed. I do know that I want this thing's development to be 90+% test-driven since it's fairly small in scope and I need the practice.
+
+At the time of this writing, I'm attempting juggle perhaps too many things at once:
+
+- Test and instantiate Rating and its integration with User;
+- Test SaveableBroadcast for the purposes of both save/error logging and creating ActivityItems, which don't even have a spec yet;
+- Keep track of everything I'm doing here;
+- All while having a super messy working directory both due to temporary changes and going in too many directions at once.
+
+Time to reorganize:
+
+1. Clear the git working directory;
+2. Solve the existing broken tests;
+3. Cover ActivityItem with tests.
+4. Proceed, but not without fully committing to a plan for the next phases, with an endpoint in sight.
