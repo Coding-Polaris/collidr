@@ -5,6 +5,6 @@ class ActivityItem < ApplicationRecord
     description
     user_id
   ].each do |field|
-    # validates field, presence: true
+    validates field, presence: true
   end
 end
