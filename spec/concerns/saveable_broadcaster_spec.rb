@@ -1,4 +1,4 @@
-RSpec.shared_examples_for "SaveableBroadcaster" do
+RSpec.shared_examples_for "SaveableBroadcaster" do |model|
   it "broadcasts validation failure" do
     model.valid?
 
