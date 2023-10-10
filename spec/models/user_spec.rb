@@ -19,8 +19,9 @@
 #  index_users_on_rating       (rating)
 #
 describe User, type: :model do
+  include_examples "SaveableBroadcaster"
   # shoulda boilerplate
-  subject { user = User.new() }
+  user = User.new()
 
   %i{ email github_name name }.each do |field|
     it { should validate_presence_of(field) }

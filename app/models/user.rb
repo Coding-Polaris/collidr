@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  include Wisper::Publisher
+  include SaveableBroadcaster
+
   %i[
     email
     github_name
