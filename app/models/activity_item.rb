@@ -4,12 +4,12 @@
 #
 #  id            :bigint           not null, primary key
 #  activity_time :datetime
-#  activity_type :string
-#  description   :text
+#  activity_type :string           not null
+#  description   :text             not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  activity_id   :integer
-#  user_id       :integer
+#  activity_id   :integer          not null
+#  user_id       :integer          not null
 #
 # Indexes
 #
