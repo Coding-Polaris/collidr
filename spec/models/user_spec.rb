@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id          :bigint           not null, primary key
+#  description :text
+#  email       :string
+#  github_name :string
+#  name        :string(30)
+#  rating      :decimal(3, 2)    default(0.0)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 describe User, type: :model do
   # shoulda boilerplate
   subject { user = User.new() }

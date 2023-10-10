@@ -33,6 +33,5 @@ group :development do
   # gem "spring"
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'annotate_models'
+  gem 'annotate', '~> 3.2'
 end
-
