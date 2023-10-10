@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  include Activitied
-
   %i[
     email
     github_name
