@@ -6,4 +6,7 @@ describe Rating, type: :model do
   end
 
   it { should validate_uniqueness_of(:rater_id).scoped_to(:ratee_id) }
+
+  it { should belong_to(:rater) }
+  it { should belong_to(:ratee) }
 end

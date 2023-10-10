@@ -27,7 +27,8 @@ describe User, type: :model do
     it { should validate_uniqueness_of(field) }
   end
 
-  user = User.new()
+  it { should have_many(:incoming_ratings) }
+  it { should have_many(:outgoing_ratings) }
 
   describe "#email" do
     it "is not valid with an invalid email format" do
