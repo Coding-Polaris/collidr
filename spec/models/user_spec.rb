@@ -11,6 +11,13 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_email        (email)
+#  index_users_on_github_name  (github_name)
+#  index_users_on_name         (name)
+#  index_users_on_rating       (rating)
+#
 describe User, type: :model do
   # shoulda boilerplate
   subject { user = User.new() }

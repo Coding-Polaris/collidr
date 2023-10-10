@@ -11,14 +11,21 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_email        (email)
+#  index_users_on_github_name  (github_name)
+#  index_users_on_name         (name)
+#  index_users_on_rating       (rating)
+#
 class User < ApplicationRecord
   include Activitied
 
-  %i{
+  %i[
     email
     github_name
     name
-  }.each do |field|
+  ].each do |field|
       validates field,
         uniqueness: true,
         presence: true
