@@ -154,7 +154,7 @@ At the time of this writing, I'm attempting juggle perhaps too many things at on
 
 Time to reorganize:
 
-1. Clear the git working directory;
+1. Clear the git working directory, and proceed on further problems with individual branches;
 2. Solve the existing broken tests;
 3. Cover ActivityItem with tests.
 4. Proceed, but not without fully committing to a plan for the next phases, with an endpoint in sight.
