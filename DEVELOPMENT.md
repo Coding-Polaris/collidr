@@ -129,3 +129,9 @@ other models when the relevant activities outlined in the requirements are made.
 It was at this point I realized formally definining the structure of the app was probably a better idea from the outset.
 
 I found an online tool, DrawSQL, that can convert the output from `rake db:schema:dump` to a drawn schema. This will greatly speed up being able to structure and implement my apps; ideally a tool that lets me expand this to visualizing and checking off things like the MVC would make the process much more streamlined and structured than it's been up to this point.
+
+# Annotating models
+
+I've found it helpful throughout my career to have the table I'm looking at available at a glance in the model file.
+
+The annotate gem accomplishes this nicely and can be configured to fire automatically with every migration. I added this at this point to make the way forward a bit more painless.
