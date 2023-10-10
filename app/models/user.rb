@@ -26,8 +26,8 @@ class User < ApplicationRecord
       validates_format_of field, with: regex
     end
 
-  has_many :incoming_ratings, as: :ratee, class_name: :rating
-  has_many :outgoing_ratings, as: :rater, class_name: :rating
+  has_many :incoming_ratings, as: :ratee, class_name: "Rating"
+  has_many :outgoing_ratings, as: :rater, class_name: "Rating"
 
   def rate_user(user, value)
     Rating.create(rater_id: self.id, ratee_id: user.id, value: value)
