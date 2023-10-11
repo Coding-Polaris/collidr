@@ -20,5 +20,5 @@ describe Post, type: :model do
     it { should validate_presence_of(field) }
   end
 
-  it { should validate_uniqueness_of(:title).scoped_to(:user) }
+  it { should validate_uniqueness_of(:title).scoped_to(:user_id) }
 end

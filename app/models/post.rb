@@ -14,4 +14,16 @@
 #  index_posts_on_user_id  (user_id)
 #
 class Post < ApplicationRecord
+  %i[
+    body
+    title
+    user_id
+  ].each do |field|
+      validates field,
+        presence: true
+    end
+
+  validates :title, uniqueness: { scope: :user_id }
+
+  belongs_to :user
 end
