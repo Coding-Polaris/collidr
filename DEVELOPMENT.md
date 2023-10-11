@@ -161,8 +161,7 @@ Time to reorganize:
 
 # Cleanup git
 
-From commit "De-confusing myself", I proceed with 8 commits that needed 1. to not be put off,
-and 2. should have been in their own branches. But the working directory's clean and I have a nice linear git graph.
+From commit "De-confusing myself", I proceed with 8 commits that needed 1. to not be put off and 2. should have been in their own branches. But the working directory's clean and I have a nice linear git graph.
 
 # Solve broken tests
 
@@ -170,4 +169,8 @@ A lot of these were straightforward; putting in relations I'd planned to put in 
 
 Some were less so. An empty array when testing SaveableBroadcast on user told me nothing, but ChatGPT suggested it might be an issue with passing an empty user which would always be invalid with my given validations.
 
-It's time to move to better testing fixtures.
+It's time to move to better testing fixtures; I opted for factory_bot_rails and faker, despite having used vanilla fixtures for the overwhelming majority of my career.
+
+# Factories for valid basic objects
+
+Respecting currently not-null fields, etc.
