@@ -31,6 +31,8 @@ describe User, type: :model do
   it { should have_many(:incoming_ratings) }
   it { should have_many(:outgoing_ratings) }
   it { should have_many(:posts) }
+  it { should have_many(:comments) }
+  it { should have_many(:profile_comments) }
 
   describe "#email" do
     it "is not valid with an invalid email format" do
