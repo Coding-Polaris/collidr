@@ -4,9 +4,9 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
-#  email       :string
-#  github_name :string
-#  name        :string(30)
+#  email       :string           not null
+#  github_name :string           not null
+#  name        :string(30)       not null
 #  rating      :decimal(3, 2)    default(0.0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
