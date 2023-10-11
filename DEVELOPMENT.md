@@ -158,3 +158,16 @@ Time to reorganize:
 2. Solve the existing broken tests;
 3. Cover ActivityItem with tests.
 4. Proceed, but not without fully committing to a plan for the next phases, with an endpoint in sight.
+
+# Cleanup git
+
+From commit "De-confusing myself", I proceed with 8 commits that needed 1. to not be put off,
+and 2. should have been in their own branches. But the working directory's clean and I have a nice linear git graph.
+
+# Solve broken tests
+
+A lot of these were straightforward; putting in relations I'd planned to put in but hadn't yet.
+
+Some were less so. An empty array when testing SaveableBroadcast on user told me nothing, but ChatGPT suggested it might be an issue with passing an empty user which would always be invalid with my given validations.
+
+It's time to move to better testing fixtures.

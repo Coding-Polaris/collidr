@@ -38,3 +38,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate', '~> 3.2'
 end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
+end
