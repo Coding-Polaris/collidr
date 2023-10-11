@@ -26,4 +26,5 @@ class Post < ApplicationRecord
   validates :title, uniqueness: { scope: :user_id }
 
   belongs_to :user
+  has_many :comments, as: :reply
 end

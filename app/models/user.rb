@@ -48,6 +48,8 @@ class User < ApplicationRecord
   has_many :incoming_ratings, as: :ratee, class_name: "Rating"
   has_many :outgoing_ratings, as: :rater, class_name: "Rating"
   has_many :posts
+  has_many :comments
+  has_many :profile_comments, as: :reply, class_name: "Comment"
 
   def rate_user(user, value)
     Rating.create(rater_id: self.id, ratee_id: user.id, value: value)
