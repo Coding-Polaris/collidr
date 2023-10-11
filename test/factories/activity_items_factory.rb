@@ -3,7 +3,6 @@
 # Table name: activity_items
 #
 #  id            :bigint           not null, primary key
-#  activity_time :datetime
 #  activity_type :string           not null
 #  description   :text             not null
 #  created_at    :datetime         not null
@@ -18,6 +17,7 @@
 #
 FactoryBot.define do
   factory :activity_item do
-    
+    description { Faker::Lorem.sentence }
+    activity { create(:user) }
   end
 end

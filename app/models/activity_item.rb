@@ -15,6 +15,10 @@
 #  index_activity_items_on_activity_id  (activity_id)
 #  index_activity_items_on_user_id      (user_id)
 #
+
+# ActivityItem is a public log of various activities on the app.
+# For example, Users joining collidr, engaging in various
+# Git activities, or making Posts/Comments.
 class ActivityItem < ApplicationRecord
   %i[
     activity_type
