@@ -1,4 +1,6 @@
-A much more structured roadmap were I to build the app a second time:
+A much more structured roadmap, for if I were to build the app a second time
+
+(or the first time, for some features)
 
 rails new collidr
 
@@ -12,6 +14,7 @@ Add gems:
 	- Annotate
 	- Wisper
 	- Better_errors + binding_of_caller
+	- Auth0/dependencies
 
 FactoryBot config:
 
@@ -28,18 +31,39 @@ development.rb for \_factory suffix:
 	    g.factory_bot suffix: "factory"
 	end
 
-Create migrations for all tables
+Create migrations for all planned tables
 
-Export to .sql file with this in development.rb
+Export to .sql file by putting this in development.rb
 
     config.active_record.schema_format = :sql
 
-Put on DrawSQL and create pretty graphic, set constraints, review and add migrations for any missing info, and add to repo.
+Put on DrawSQL
+	- Set DB constraints
+	- Create pretty graphic/visual schema
+	- Review schema
+	- Add migrations for any missing info
+
+Comment out previous config statement
 
 Write failing model specs for each added table that include:
 	- Basic data validations
 	- Planned associations in both directions
 
-Write factories and model code to pass tests
+Write factories and model code to pass tests <- **I am here**
 
-Write failing model specs for planned business logic for each model
+Write failing model specs for planned business logic for each model:
+	User.create_rating
+	User.update_rating_from_average_ratings
+	User.create_comment
+	User.create_post
+	ActivityItem logic working with GitHub events
+then fix
+
+Write failing basic auth specs and associated controller action tests,
+then fix
+
+Write failing controller/API action tests,
+then fix
+
+Write failing integration tests between API actions (post -> data change on back end -> receive different timeline),
+then fix
