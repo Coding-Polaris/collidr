@@ -174,3 +174,11 @@ It's time to move to better testing fixtures; I opted for factory_bot_rails and 
 # Factories for valid basic objects
 
 Respecting currently not-null fields, etc.
+
+# Ahead of myself part II
+
+Extensive wrestling with FactoryBot, RSpec, and Wisper has left me effectively paralyzed and unable to actually develop features, at least with TDD and low coupling. While I'm certain they're the right tools for the job, the opacity of the errors I'm getting is preventing me from moving forward.
+
+This led me to remove my intial vision (SaveableBroadcaster) of having models announce signups/changes etc. to some central hub and having them be picked up by other models listening for specific events.
+
+Perhaps the best way forward is with something new, or at least easier to digest.

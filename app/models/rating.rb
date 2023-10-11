@@ -21,7 +21,6 @@
 #
 class Rating < ActiveRecord::Base
   include Wisper::Publisher
-  include SaveableBroadcaster
 
   %i[rater_id ratee_id value].each do |field|
     validates field, presence: true

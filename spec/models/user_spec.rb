@@ -20,9 +20,7 @@
 #
 describe User, type: :model do
   # shoulda boilerplate
-  user = User.new()
-
-  include_examples "SaveableBroadcaster", user
+  let(:user) { build(:user) }
 
   %i{ email github_name name }.each do |field|
     it { should validate_presence_of(field) }
