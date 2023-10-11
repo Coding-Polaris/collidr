@@ -1,5 +1,6 @@
 describe Rating, type: :model do
-  subject { rating = Rating.new() }
+  let(:rating) { create(:rating) }
+  subject { rating }
 
   %i{ rater_id ratee_id value }.each do |field|
     it { should validate_presence_of(field) }

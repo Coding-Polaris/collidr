@@ -20,7 +20,8 @@
 #
 describe User, type: :model do
   # shoulda boilerplate
-  let(:user) { build(:user) }
+  let(:user) { create(:user) }
+  subject { user }
 
   %i{ email github_name name }.each do |field|
     it { should validate_presence_of(field) }
