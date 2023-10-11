@@ -20,6 +20,9 @@
 #
 FactoryBot.define do
   factory :user do
-    
+    email { Faker::Internet.unique.email }
+    github_name { Faker::Internet.unique.username(specifier: 8..30) }
+    name { Faker::Name.name }
+    rating { Faker::Number.between(from: 1, to: 5).to_f }
   end
 end
