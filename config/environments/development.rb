@@ -62,4 +62,9 @@ Rails.application.configure do
 
   # uncomment this for dumping to create diagram
   # config.active_record.schema_format = :sql
+
+  config.generators do |g|
+    # append factory_bot generatored files with _factory
+    g.factory_bot suffix: "factory"
+  end
 end
