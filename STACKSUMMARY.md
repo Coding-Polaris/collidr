@@ -7,7 +7,7 @@ Okta Auth0 - External authentication service
 **Gems**
 
 annotate\_models - allows one to display DB columns etc. as a commented table on models
-https://github.com/ctran/annotate_models
+https://github.com/ctran/annotate\_models
 
 wisper - a lightweight pub-sub mixin well-suited to creating timeline items and avoiding coupled models
 (preferred for ease of use and therefore speed over ActiveSupport::Notifications)
@@ -21,13 +21,13 @@ https://github.com/dchelimsky/rspec
 shoulda-matchers - quick, shorthand tests, best used with TDD
 https://github.com/thoughtbot/shoulda-matchers
 
-factory_bot - create flexible, modular, reusable fixtures
-https://github.com/thoughtbot/factory_bot
+factory\_bot - create flexible, modular, reusable fixtures
+https://github.com/thoughtbot/factory\_bot
 
 faker - create randomized, fake data quickly for testing purposes
 https://github.com/faker-ruby/faker
 
-DEBUG 
+DEBUG
 
 better\_errors/binding\_of\_caller - a debugging console that allows direct inspection of server-side execution values
 https://github.com/BetterErrors/better\_errors

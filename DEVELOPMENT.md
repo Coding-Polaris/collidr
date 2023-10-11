@@ -143,7 +143,7 @@ After creating Users and ActivityItem, and also realizing I wanted to keep a tig
 
 # Getting ahead of myself
 
-I'm finding it difficult to know in which *direction* to proceed. I do know that I want this thing's development to be 90+% test-driven since it's fairly small in scope and I need the practice.
+I'm finding it difficult to know in which *direction* to proceed. I do know that I want this thing's development to be 90+% test-driven since it's relatively small in scope and I need the practice.
 
 At the time of this writing, I'm attempting juggle perhaps too many things at once:
 
