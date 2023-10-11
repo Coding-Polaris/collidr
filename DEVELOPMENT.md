@@ -1,7 +1,6 @@
 I'll be collecting my thought process, trying to keep pace with each commit, as I go here.
 
-This is very stream-of-consciousness - I'll be creating a more structured
-overview of the project toward the end.
+This is very stream-of-consciousness. For a brief, structured plan for the app, please read RECIPE.md instead (recommended).
 
 # First Glance
 
