@@ -1,0 +1,26 @@
+<div id="navbar">
+    <ul>
+        <li id="collidr-logo"><%= link_to "collidr", "/" %></li>   
+        <li id="user-name">
+            <% if current_user %>
+                Welcome, <%= current_user %>
+            <% end %>
+        </li>
+            <% if current_user %>
+                <%= render partial: "users/star_rating" %>
+            <% end %>
+        <li class="new-post"></li>
+        <li class="burger-menu">
+            <ul>
+                <% if current_user %>
+                    <li>Profile</li>
+                    <li>Your Posts</li>
+                    <li>Your Comments</li>
+                <% else %>
+                    <li>Sign in</li>
+                    <li>Sign up</li>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</div>
