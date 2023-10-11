@@ -1,5 +1,6 @@
 # Collidr - Stack and tool summary
 
+Ruby 3.2.2
 Rails 7 - Web framework
 PostgreSQL 14 - Relational database
 Okta Auth0 - External authentication service

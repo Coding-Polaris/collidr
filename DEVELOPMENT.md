@@ -182,3 +182,17 @@ Extensive wrestling with FactoryBot, RSpec, and Wisper has left me effectively p
 This led me to remove my intial vision (SaveableBroadcaster) of having models announce signups/changes etc. to some central hub and having them be picked up by logger as well as other models listening for specific events.
 
 Perhaps the best way forward is with something new, or at least easier to digest.
+
+# Moving through opaque errors
+
+After extensive Googling I finally busted two postgres foreign key and uniqueness bugs. Before, I didn't fully understand how FactoryBot nor Shoulda worked to implement fixtures/seek out examples to use for tests, respectively, but once I gave them what they needed my old tests worked again.
+
+# Next steps
+
+If I were to do this quick and dirty without regard for coupling or DRY, it'd be super simple to having User and Rating communicate directly to one another. It'd be really fast, it'd be straightforward to get the tests passing, and as long as the app remained a small demo/toy app this would be fine.
+
+For the time being, I'm actually going to table this and proceed with creating the rest of the foundational tables so that I have a basic, fleshed-out schema with tested models and associations.
+
+# New tests and models
+
+I created ActivityItem earlier, so I suppose it's time to create its model, associations, and model specs.
