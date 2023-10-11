@@ -3,7 +3,6 @@
 # Table name: activity_items
 #
 #  id            :bigint           not null, primary key
-#  activity_time :datetime
 #  activity_type :string           not null
 #  description   :text             not null
 #  created_at    :datetime         not null
