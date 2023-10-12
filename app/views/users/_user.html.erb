@@ -1,27 +1,19 @@
 <div id="<%= dom_id user %>">
+  <h2><%= @user.name %></H2>
+  <% if @user.github_name %>
+    <p>
+      <%= image_tag("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png", size: "50px") %>
+      <%= @user.github_name %>
+    </p>
+  <% end %>
+
   <p>
-    <strong>Name:</strong>
-    <%= user.name %>
+    <%= render partial: "users/star_rating" %>
   </p>
 
   <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
-
-  <p>
-    <strong>Github name:</strong>
-    <%= user.github_name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
     <%= user.description %>
   </p>
 
-  <p>
-    <strong>Cached rating:</strong>
-    <%= user.rating %>
-  </p>
 
 </div>
