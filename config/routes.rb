@@ -4,7 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get "/hello_world", to: redirect("hello_world.html") 
-
   resources :users
 end
