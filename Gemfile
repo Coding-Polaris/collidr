@@ -23,12 +23,18 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "wisper", "2.0.0"
 
+gem "sidekiq", "~> 7.1"
+
+gem "omniauth-auth0", "~> 3.1"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'wisper-rspec', require: false
+  gem 'byebug'
 end
 
 group :development do
@@ -44,7 +50,3 @@ group :test do
   gem 'faker'
 end
 
-gem "sidekiq", "~> 7.1"
-
-gem "omniauth-auth0", "~> 3.1"
-gem "omniauth-rails_csrf_protection", "~> 1.0"

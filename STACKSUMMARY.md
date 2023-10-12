@@ -4,6 +4,7 @@ Ruby 3.2.2
 Rails 7 - Web framework
 PostgreSQL 14 - Relational database
 Okta Auth0 - External authentication service
+Redis - In-memory cacheing/DB service leveraged by Sidekiq
 
 **Gems**
 
@@ -13,6 +14,11 @@ https://github.com/ctran/annotate\_models
 wisper - a lightweight pub-sub mixin well-suited to creating timeline items and avoiding coupled models
 (preferred for ease of use and therefore speed over ActiveSupport::Notifications)
 https://github.com/krisleech/wisper
+
+Sidekiq - A background job queueing gem powered by Redis
+https://github.com/sidekiq/sidekiq
+
+Auth0 + dependencies
 
 TESTING
 
