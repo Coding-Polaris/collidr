@@ -28,6 +28,13 @@ describe User, type: :model do
     it { should validate_uniqueness_of(field) }
   end
 
+  it do
+    should validate_numericality_of(:rating)
+      .is_greater_than_or_equal_to(1)
+      .is_less_than_or_equal_to(5)
+      .with_message("must be from 1 to 5")
+  end
+
   it { should have_many(:incoming_ratings) }
   it { should have_many(:outgoing_ratings) }
   it { should have_many(:posts) }
@@ -43,18 +50,6 @@ describe User, type: :model do
   end
 
   describe "#rating" do 
-    it "is only valid if rating is between one and five" do
-      user.rating = 6
-      user.valid?
-      expect(user.errors[:rating]).to include("must be between 1 and 5")
-    end
-
-    it "is valid if rating is a decimal between one and five" do
-      user.rating = 3.69
-      user.valid?
-      expect(user.errors[:rating]).to be_empty
-    end
-
     it "is valid if rating is empty" do
       user.rating = nil
       user.valid?
@@ -90,7 +85,7 @@ describe User, type: :model do
 
   describe "#rate_user" do
     it "should assign a rating to another user" do
-      second_user = User.new
+      second_user = create(:user)
       user.rate_user(second_user, 4)
 
       expect(second_user.rating).to eq(4)

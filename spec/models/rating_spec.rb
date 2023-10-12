@@ -29,6 +29,13 @@ describe Rating, type: :model do
 
   it { should validate_uniqueness_of(:rater_id).scoped_to(:ratee_id) }
 
+  it do
+    should validate_numericality_of(:value)
+      .is_greater_than_or_equal_to(1)
+      .is_less_than_or_equal_to(5)
+      .with_message("must be from 1 to 5")
+  end
+
   it { should belong_to(:rater) }
   it { should belong_to(:ratee) }
 end

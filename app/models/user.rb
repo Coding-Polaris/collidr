@@ -34,7 +34,7 @@ class User < ApplicationRecord
   validates :rating,
     numericality: {
       in: (1..5),
-      message: "must be between 1 and 5"
+      message: "must be from 1 to 5"
     },
     allow_blank: true
 
