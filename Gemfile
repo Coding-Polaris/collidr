@@ -43,3 +43,8 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
 end
+
+gem "sidekiq", "~> 7.1"
+
+gem "omniauth-auth0", "~> 3.1"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
