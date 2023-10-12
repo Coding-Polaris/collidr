@@ -5,9 +5,9 @@
 #  id          :bigint           not null, primary key
 #  description :text
 #  email       :string           not null
-#  github_name :string           not null
+#  github_name :string
 #  name        :string(30)       not null
-#  rating      :decimal(3, 2)    default(0.0)
+#  rating      :decimal(3, 2)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -23,10 +23,15 @@ describe User, type: :model do
   let(:user) { create(:user) }
   subject { user }
 
-  %i{ email github_name name }.each do |field|
+  include_examples "SaveBroadcaster", :user
+
+  %i{ email name }.each do |field|
     it { should validate_presence_of(field) }
     it { should validate_uniqueness_of(field) }
   end
+
+  it { should validate_uniqueness_of(:github_name) }
+  it { should allow_value("", nil).for(:github_name) }
 
   it do
     should validate_numericality_of(:rating)
@@ -57,9 +62,17 @@ describe User, type: :model do
     end
 
     it "is equal to an average of the user's total Rating values" do
-      expect(user.rating).to equal(4)
-      expect(user.rating).to equal(3.5)
-      expect(user.rating).to equal(4)
+      create(:rating, ratee: user, value: 4)
+      user.send(:update_rating)
+      expect(user.rating).to eq(4.to_f.round(2))
+
+      create(:rating, ratee: user, value: 3)
+      user.send(:update_rating)
+      expect(user.rating).to eq(3.5.to_f.round(2))
+
+      create(:rating, ratee: user, value: 5)
+      user.send(:update_rating)
+      expect(user.rating).to eq(4.to_f.round(2))
     end
   end
 
@@ -88,6 +101,7 @@ describe User, type: :model do
       second_user = create(:user)
       user.rate_user(second_user, 4)
 
+      second_user.send(:update_rating)
       expect(second_user.rating).to eq(4)
     end
   end

@@ -38,4 +38,28 @@ describe Rating, type: :model do
 
   it { should belong_to(:rater) }
   it { should belong_to(:ratee) }
+
+  describe ".get_average_rating_for" do
+    before do
+      Rating.destroy_all
+      User.destroy_all
+      @queried_average = nil
+    end
+
+    let(:ratee) { create(:user) }
+    let(:ratings) do
+      list = build_list(:rating, rand(0...100)) do |r|
+        r.rater = create(:user)
+        r.ratee = ratee
+        r.save!
+      end
+    end
+    let(:length) { ratings.length }
+    let(:average) { (ratings.map(&:value).sum / length.to_f).round(2) }
+
+    it "returns the average rating for a user" do
+      ratings.each(&:save)
+      expect(Rating.get_average_rating_for(ratee)).to eq(average)
+    end
+  end
 end

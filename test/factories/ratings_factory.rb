@@ -24,10 +24,5 @@ FactoryBot.define do
     value { Faker::Number.between(from: 1, to: 5) }
     rater { association :user }
     ratee { association :user }
-    
-    # Ensure rater and ratee are different users
-    after(:build) do |rating|
-      rating.rater = create(:user) if rating.rater == rating.ratee 
-    end
   end
 end

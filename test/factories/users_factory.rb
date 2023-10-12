@@ -21,12 +21,16 @@
 FactoryBot.define do
   factory :user do
     email { Faker::Internet.unique.email }
-    github_name { Faker::Internet.unique.username(specifier: 8..30, separators: %w[-]) }
+    sequence(:github_name) { |n| "#{Faker::Internet.unique.username(specifier: 8..39, separators: %w[-])}#{n}" }
     name { Faker::Name.name }
     rating { nil }
 
     trait :rated do
       rating { Faker::Number.between(from: 1, to: 5).to_f }
+    end
+
+    trait :invalid do
+      rating { 42 }
     end
   end
 end
